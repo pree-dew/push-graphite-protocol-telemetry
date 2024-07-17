@@ -1,0 +1,5 @@
+- action: replace_all
+  source_labels: [__name__]
+  target_label: "__name__"
+  regex: "\\.|\\-"
+  replacement: "_"

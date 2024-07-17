@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  vmagent:
+    container_name: vmagent
+    image: victoriametrics/vmagent
+    ports:
+      - "8429:8429"
+      - "2003:2003"
+    volumes:
+      - vmagentdata:/vmagentdata
+      - /var/tmp:/var/tmp
+      - ./remoteWrite_relabel.yml:/etc/remoteWrite_relabel.yml
+    command:
+      - "--graphiteListenAddr=:2003"
+      - "--remoteWrite.relabelConfig=/etc/remoteWrite_relabel.yml"
+      - "--remoteWrite.tmpDataPath=/var/tmp/vmagent/"
+      - "--remoteWrite.maxDiskUsagePerURL=10737418240"
+      - "--remoteWrite.url=http://victoriametrics:8429/api/v1/write"
+    restart: always
+
+  victoriametrics:
+    container_name: victoriametrics
+    image: victoriametrics/victoria-metrics
+    ports:
+      - "8439:8429"
+    volumes:
+      - victoriametricsdata:/victoriametricsdata
+    command:
+      - "-storageDataPath=/victoriametricsdata"
+      - "-retentionPeriod=30"
+      - "-httpListenAddr=:8429"
+    restart: always
+
+volumes:
+  vmagentdata: { }
+  victoriametricsdata: { }
