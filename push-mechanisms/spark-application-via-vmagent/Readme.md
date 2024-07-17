@@ -1,5 +1,5 @@
 
-### 1. Via vmagent
+### Via vmagent
 
 Taking an example set up for hadoop and spark where metrics generated via spark jobs needs to sent via **graphite** protocol.
 
