@@ -1,4 +1,4 @@
-# push-graphite-protocol-telemetry
+# send-graphite-protocol-telemetry
 Mechanisms to send graphite protocol based telemetry data to various sinks
 Sending telemetry can happen via **Push** or **Pull** based mechanism and sometimes it is a combination of both, it highly depends on these factors:
 1. Latency constraints.
