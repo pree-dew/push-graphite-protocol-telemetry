@@ -47,7 +47,7 @@ Taking an example set up for hadoop and spark where metrics generated via spark 
     echo "test_metric_name 60 $(date +%s)" | nc localhost 2003
     ```
   
-    Move to [Victoriametrics UI](http://localhost:8439) and run query
+    Move to [Victoriametrics UI](http://localhost:8439/vmui) and run query
 
     ```
     test_metric_name{}
@@ -68,10 +68,12 @@ Taking an example set up for hadoop and spark where metrics generated via spark 
   `spark-submit --class org.apache.spark.examples.SparkPi --master yarn --deploy-mode client $SPARK_HOME/examples/jars/spark-examples_2.12-3.0.0.jar 10
   `
 
-- Move to [Victoriametrics UI](http://localhost:8439) and run query starting with metric starting with `spark`, ex:
+- Move to [Victoriametrics UI](http://localhost:8439/vmui) and run query starting with metric starting with `spark`, ex:
 
-  ```
+  **Note: application id in screenshot will vary as per your application id**
   
+  
+<img width="1344" alt="Screenshot 2024-07-17 at 5 34 06 PM" src="https://github.com/user-attachments/assets/4c15e9f8-7606-4322-b6a2-f2c1c580ceb7">
 
 
 
